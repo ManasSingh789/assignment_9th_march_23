@@ -1,0 +1,48 @@
+	#include<iostream>
+	#include<vector>
+	using namespace std;
+	int main () 
+	{
+	vector<int> arr;
+	arr.push_back(1);
+	arr.push_back(3);
+	arr.push_back(5);
+	arr.push_back(7);
+	arr.push_back(9);
+    int i,min,max,max_sum=0,min_sum=0,temp;
+    min=arr[0];
+    max=arr[0];
+    i=0;
+    for(int i=0;i<arr.size();i++)
+        {
+            if(min<arr[i])
+            {
+                min=arr[i];
+            }    
+            else if(max>arr[i])
+            {
+                max=arr[i];
+            }
+            else 
+            {
+                for(int j=0;j<5;j++)
+                    {
+                        for(int k=j+1;k<5;k++)
+                            {
+                                if(arr[j]>arr[k])
+                                {
+                                    temp=arr[j];
+                                    arr[j]=arr[k];
+                                    arr[k]=temp;        
+                                }
+                            }
+                    }
+                  //for maximum sum
+                 max_sum=arr[0]+arr[1]+arr[2]+arr[3]; 
+                  //for minimum sum
+                 min_sum=arr[1]+arr[2]+arr[3]+arr[4];  
+            }
+        }
+        cout << max_sum << " " << min_sum;
+        return 0;
+}
